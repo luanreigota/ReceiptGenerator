@@ -38,3 +38,9 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### LOG ###
+logs/**
+*.log
+**/*.log
+logs/**/*.log

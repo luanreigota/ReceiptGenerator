@@ -1,10 +1,14 @@
 package com.receiptgenerator.repository.entity
 
 import jakarta.persistence.*
+import org.hibernate.envers.Audited
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "tb_emissor")
+@Audited(withModifiedFlag = true)
 data class Emissor(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +32,13 @@ data class Emissor(
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao", nullable = false)
-    val dataCriacao: LocalDateTime = LocalDateTime.now()
+    @CreatedDate
+    val dataCriacao: LocalDateTime = LocalDateTime.now(),
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_atualizacao", nullable = false)
+    @LastModifiedDate
+    val dataAtualizacao: LocalDateTime = LocalDateTime.now()
 
 ) {
     constructor() : this(
@@ -43,5 +53,5 @@ data class Emissor(
 }
 
 enum class TipoDocumentoEnum {
-CPF, CNPJ
+    CPF, CNPJ
 }

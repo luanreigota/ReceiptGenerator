@@ -72,6 +72,8 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.postgresql:postgresql")
         implementation("com.zaxxer:HikariCP")
+        implementation("org.hibernate:hibernate-envers:6.6.0.Final")
+
     }
 
     java {

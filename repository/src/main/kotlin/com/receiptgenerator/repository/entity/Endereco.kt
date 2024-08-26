@@ -1,10 +1,12 @@
 package com.receiptgenerator.repository.entity
 
 import jakarta.persistence.*
+import org.hibernate.envers.Audited
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "tb_endereco")
+@Audited(withModifiedFlag = true)
 data class Endereco(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
