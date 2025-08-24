@@ -1,8 +1,8 @@
 package com.receiptgenerator.repository.service
 
-import com.receiptgenerator.entity.Telefone
+import com.receiptgenerator.entity.Emissor
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface TelefoneRepository : JpaRepository<Telefone, Long>
+interface EmissorJpaRepository : JpaRepository<Emissor, Long>

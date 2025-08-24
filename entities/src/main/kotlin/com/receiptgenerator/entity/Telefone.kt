@@ -1,4 +1,4 @@
-package com.receiptgenerator.repository.entity
+package com.receiptgenerator.entity
 
 import jakarta.persistence.*
 import org.hibernate.envers.Audited
@@ -21,16 +21,20 @@ data class Telefone(
     @Column(name = "principal", nullable = false)
     val principal: Boolean = true,
 
-
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao", nullable = false)
     val dataCriacao: LocalDateTime = LocalDateTime.now(),
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emissor_id")
-    val emissor: Emissor
+    val emissor: Emissor,
 ) {
     constructor() : this(
-        id = 0L, numero = "", ddd = "", principal = false, dataCriacao = LocalDateTime.now(), emissor = Emissor()
+        id = 0L,
+        numero = "",
+        ddd = "",
+        principal = false,
+        dataCriacao = LocalDateTime.now(),
+        emissor = Emissor(),
     )
 }
+

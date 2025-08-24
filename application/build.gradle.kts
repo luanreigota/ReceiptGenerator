@@ -1,5 +1,3 @@
-
-
 plugins {
     id("org.springframework.boot")
     id("io.spring.dependency-management")
@@ -18,5 +16,6 @@ dependencies {
 }
 
 tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
-    mainClass.set("com.receiptgenerator.BootApplication.kt")
+    mainClass.set("com.receiptgenerator.BootApplication")
 }
+
