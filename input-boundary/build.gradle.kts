@@ -1,5 +1,3 @@
-
-
 plugins {
     id("org.springframework.boot")
     id("io.spring.dependency-management")
@@ -8,5 +6,5 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":output-boundary"))
 }
+

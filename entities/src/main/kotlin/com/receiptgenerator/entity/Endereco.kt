@@ -1,4 +1,4 @@
-package com.receiptgenerator.repository.entity
+package com.receiptgenerator.entity
 
 import jakarta.persistence.*
 import org.hibernate.envers.Audited
@@ -33,21 +33,28 @@ data class Endereco(
     @Column(name = "bairro", nullable = false, length = 50)
     val bairro: String,
 
-
     @Column(name = "complemento", nullable = false, length = 100)
     val complemento: String? = null,
 
-
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao", nullable = false)
     val dataCriacao: LocalDateTime = LocalDateTime.now(),
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emissor_id")
-    val emissor: Emissor
+    val emissor: Emissor,
 ) {
     constructor() : this(
-           id= 0,logradouro= "", numero = "", cidade = "", estado = "", pais = "", cep = "", bairro = "", complemento = "", dataCriacao = LocalDateTime.now(), emissor = Emissor()
+        id = 0,
+        logradouro = "",
+        numero = "",
+        cidade = "",
+        estado = "",
+        pais = "",
+        cep = "",
+        bairro = "",
+        complemento = "",
+        dataCriacao = LocalDateTime.now(),
+        emissor = Emissor(),
     )
 }
+

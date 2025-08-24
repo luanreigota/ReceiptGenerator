@@ -1,4 +1,4 @@
-package com.receiptgenerator.repository.entity
+package com.receiptgenerator.entity
 
 import jakarta.persistence.*
 import org.hibernate.envers.Audited
@@ -24,10 +24,10 @@ data class Emissor(
     @Enumerated(EnumType.STRING)
     val tipoDocumento: TipoDocumentoEnum,
 
-    @OneToMany(mappedBy = "emissor", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
+    @OneToMany(mappedBy = "emissor", cascade = [CascadeType.ALL], orphanRemoval = true)
     val endereco: List<Endereco>? = null,
 
-    @OneToMany(mappedBy = "emissor", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
+    @OneToMany(mappedBy = "emissor", cascade = [CascadeType.ALL], orphanRemoval = true)
     val telefone: List<Telefone>? = null,
 
     @Column(name = "data_criacao", nullable = false)
@@ -36,8 +36,7 @@ data class Emissor(
 
     @Column(name = "data_atualizacao", nullable = false)
     @LastModifiedDate
-    val dataAtualizacao: LocalDateTime = LocalDateTime.now()
-
+    val dataAtualizacao: LocalDateTime = LocalDateTime.now(),
 ) {
     constructor() : this(
         id = 0,
@@ -46,10 +45,11 @@ data class Emissor(
         tipoDocumento = TipoDocumentoEnum.CPF,
         endereco = null,
         telefone = null,
-        dataCriacao = LocalDateTime.now()
+        dataCriacao = LocalDateTime.now(),
     )
 }
 
 enum class TipoDocumentoEnum {
     CPF, CNPJ
 }
+
