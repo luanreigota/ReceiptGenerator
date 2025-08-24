@@ -30,12 +30,10 @@ data class Emissor(
     @OneToMany(mappedBy = "emissor", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
     val telefone: List<Telefone>? = null,
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao", nullable = false)
     @CreatedDate
     val dataCriacao: LocalDateTime = LocalDateTime.now(),
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao", nullable = false)
     @LastModifiedDate
     val dataAtualizacao: LocalDateTime = LocalDateTime.now()
