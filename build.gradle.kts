@@ -83,7 +83,7 @@ subprojects {
     }
 
     tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
-        mainClass.set("com.receiptgenerator.BootApplication.kt")
+        mainClass.set("com.receiptgenerator.BootApplication")
     }
 
     tasks.withType<Test> {
